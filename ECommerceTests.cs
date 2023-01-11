@@ -45,9 +45,27 @@ namespace ScrollAction_SeleniumWebDriver
             js.ExecuteScript("window.scrollBy(0,500)");
         }
 
+        [Test]
+        public void ScrollToElement()
+        {
+            IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
+            driver.Navigate().GoToUrl(testUrl);
+            var button = driver.FindElement(By.XPath("//a[@class='btn btn-outline-primary btn-lg']"));
+            js.ExecuteScript("arguments[0].scrollIntoView();", button);
+        }
+
+        [Test]
+        public void ScrollHorizontally()
+        {
+            IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
+            driver.Navigate().GoToUrl(testUrl);
+            js.ExecuteScript("window.scrollBy(50,0)");
+        }
+
         [TearDown]
         public void TearDown()
         {
+            Thread.Sleep(5000);
             driver.Quit();
         }
     }
