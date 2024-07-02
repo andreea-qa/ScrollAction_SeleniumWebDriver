@@ -16,14 +16,15 @@ namespace ScrollAction_SeleniumWebDriver
         public void Setup()
         {
             ChromeOptions capabilities = new ChromeOptions();
-            capabilities.BrowserVersion = "108.0";
+            capabilities.BrowserVersion = "126";
             Dictionary<string, object> ltOptions = new Dictionary<string, object>();
             ltOptions.Add("username", LT_USERNAME);
             ltOptions.Add("accessKey", LT_ACCESS_KEY);
             ltOptions.Add("platformName", "Windows 11");
             ltOptions.Add("project", "Selenium Scroll");
+            ltOptions.Add("selenium_version", "4.22.0");
             ltOptions.Add("w3c", true);
-            ltOptions.Add("plugin", "c#-nunit");
+            ltOptions.Add("plugin", "c#-c#");
             capabilities.AddAdditionalOption("LT:Options", ltOptions);
             driver = new RemoteWebDriver(new Uri($"https://{LT_USERNAME}:{LT_ACCESS_KEY}{gridURL}"), capabilities);
         }
